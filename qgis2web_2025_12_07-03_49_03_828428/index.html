@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <!-- Estilos y recursos de QGIS2Web / OpenLayers -->
+        <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+        <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+        <link rel="stylesheet" href="./resources/qgis2web.css">
+
+        <!-- Ajustes visuales generales de controles y fondo -->
+        <style>
+            html, body {
+                background-color: #ffffff;
+            }
+            .ol-control > * {
+                background-color: #f8f8f8 !important;
+                color: #444444 !important;
+                border-radius: 0;
+            }
+            .ol-attribution a,
+            .gcd-gl-input::placeholder,
+            .search-layer-input-search::placeholder {
+                color: #444444 !important;
+            }
+            .search-layer-input-search {
+                background-color: #f8f8f8 !important;
+            }
+            .ol-control > *:focus,
+            .ol-control > *:hover {
+                background-color: rgba(248, 248, 248, 0.7) !important;
+            }
+            .ol-control {
+                background-color: rgba(255, 255, 255, .4) !important;
+                padding: 2px !important;
+            }
+
+            /* Que mapa y body ocupen toda la ventana */
+            html, body, #map {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+
+        <title>Mapa Interactivo del Campus UAN</title>
+    </head>
+    <body>
+
+        <!-- ===== Encabezado personalizado (independiente de los controles) ===== -->
+        <div id="app-header-container">
+            <div class="app-header">
+                <!-- Cambia las rutas de las imágenes si están en otra carpeta -->
+                <img src="images/logo_uan.png"
+                     class="app-header-logo"
+                     alt="Logo Universidad Autónoma de Nayarit">
+                <div class="app-header-text">
+                    <div class="app-header-title">Universidad Autónoma de Nayarit</div>
+                    <div class="app-header-subtitle">Mapa Interactivo del Campus Universitario</div>
+                </div>
+                <img src="images/logo_qgis.png"
+                     class="app-header-logo-right"
+                     alt="Logo QGIS">
+            </div>
+        </div>
+
+        <!-- ===== Mapa ===== -->
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+
+        <!-- ===== Pie de página con datos del alumno ===== -->
+<div id="bottom-left-container">
+    <div class="app-footer app-footer-left">
+        <div class="app-footer-title">Información del estudiante</div>
+        <div class="app-footer-line"><strong>Alumno:</strong> Guillermo Arroyo Guerrero</div>
+        <div class="app-footer-line"><strong>ID / Matrícula:</strong> 23105664</div>
+        <div class="app-footer-line">
+            <strong>Asignatura:</strong> Administración de Bases de Datos Estadísticos
+        </div>
+    </div>
+</div>
+
+        <!-- ===== Scripts de QGIS2Web / OpenLayers ===== -->
+        <script src="resources/qgis2web_expressions.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="resources/photon-geocoder-autocomplete.min.js"></script>
+
+        <!-- Capas -->
+        <script src="layers/Campus_Universitario_2.js"></script>
+        <script src="layers/Areas_Verdes_3.js"></script>
+        <script src="layers/Areas_Estacionamiento_4.js"></script>
+        <script src="layers/Areas_Deportivas_5.js"></script>
+        <script src="layers/Edificios_6.js"></script>
+        <script src="layers/Unidades_Academicas_7.js"></script>
+
+        <!-- Estilos de capas -->
+        <script src="styles/Campus_Universitario_2_style.js"></script>
+        <script src="styles/Areas_Verdes_3_style.js"></script>
+        <script src="styles/Areas_Estacionamiento_4_style.js"></script>
+        <script src="styles/Areas_Deportivas_5_style.js"></script>
+        <script src="styles/Edificios_6_style.js"></script>
+        <script src="styles/Unidades_Academicas_7_style.js"></script>
+
+        <!-- Configuración general del mapa -->
+        <script src="./layers/layers.js" type="text/javascript"></script>
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>
+    </body>
+</html>
